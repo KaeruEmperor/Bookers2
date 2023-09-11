@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bookers2</title>
+    <script src="https://kit.fontawesome.com/2e651caf8c.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header class = "bg-dark">
+      <div class = "container d-flex">
+        <nav class = "navbar-brand">
+          <a class = "nav-item text-light btn" href = "/">Bookers</a>
+        </nav>
+        <ul class = "navbar-nav d-flex flex-row ml-auto">
+          <% if user_signed_in? %>
+            <li class = "nav-item text-light">
+              <%= link_to user_path(current_user), class: "nav-link btn btn-sm text-light p-2 " do %>
+                <i class="fa-solid fa-home">Home</i>
+              <% end %>
+            </li>
+            <li class = "nav-item text-light">
+              <%= link_to users_path, class: "nav-link btn btn-sm text-light p-2" do %>
+                <i class="fa-solid fa-users">Users</i>
+              <% end %>
+            </li>
+            <li class = "nav-item text-light">
+              <%= link_to books_path, class: "nav-link btn btn-sm text-light p-2" do %>
+                <i class="fa-solid fa-book-open">Books</i>
+              <% end %>
+            </li>
+            <li class = "nav-item text-light">
+              <%= link_to destroy_user_session_path, method: :delete, class: "nav-link btn btn-sm text-light p-2" do %>
+                <i class="fa-solid fa-sign-out-alt">Log out</i>
+              <% end %>
+            </li>
+          <% else %>
+            <li class = "nav-item text-light d-flex flex-row">
+              <%= link_to root_path, class: "nav-link btn btn-sm text-light p-2 " do %>
+                <i class="fa-solid fa-home">Home</i>
+              <% end %>
+            </li>
+            <li class = "nav-item text-light">
+              <%= link_to about_path, class: "nav-link btn btn-sm text-light p-2 " do %>
+                <i class="fa-solid fa-link">About</i>
+              <% end %>
+            </li>
+            <li class = "nav-item text-light">
+              <%= link_to new_user_registration_path, class: "nav-link btn btn-sm text-light p-2 " do %>
+                <i class="fa-solid fa-user-plus">Sign up</i>
+              <% end %>
+            </li>
+            <li class = "nav-item text-light">
+              <%= link_to user_session_path, class: "nav-link btn btn-sm text-light p-2   " do %>
+                <i class="fa-solid fa-sign-in-alt">Log in</i>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </header>
+    <div>
+      <%= flash[:notice] %>
+    </div>
+    <div class = "container">
+      <%= yield %>
+    </div>
+    <footer class = "d-flex justify-content-center">
+      <p>CopyRight Infratop.inc</p>
+    </footer>
+  </body>
+</html>

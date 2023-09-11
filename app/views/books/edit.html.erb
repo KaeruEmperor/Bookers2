@@ -1,0 +1,23 @@
+<% if @post_book.errors.any? %>
+  <%= @post_book.errors.count %>errors prohibited this obj from being saved:
+  <ul>
+    <% @post_book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+<div class = "container d-flex justify-content-center">
+  <div>
+    <h1>Editing Book</h1>
+    <%= form_with model: @post_book do|f| %>
+    <h3>Title</h3>
+    <%= f.text_field :title %>
+    <h3>Opinion</h3>
+    <%= f.text_area :body %>
+    <%= f.submit "Update Book", class: "btn btn-success d-block" %>
+    <% end %>
+
+    <%= link_to "Show", book_path(@post_book) %>
+    <%= link_to "Back", books_path %>
+  </div>
+</div>
