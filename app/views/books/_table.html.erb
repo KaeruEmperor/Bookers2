@@ -3,6 +3,7 @@
     <th></th>
     <th>Title</th>
     <th>Opinion</th>
+    <th></th>
   </tr>
   <% post_books.each do |post_book| %>
     <tr>
@@ -17,6 +18,21 @@
         <% end %>
       </td>
       <td><%= post_book.body %></td>
+      <td>
+        <% if post_book.favorited_by?(current_user) %>
+          <p class = "btn">
+            <%= link_to book_favorites_path(post_book), method: :delete do %>
+              <i class="fa-solid fa-heart"></i><%= post_book.favorites.count %>
+            <% end %>
+          </p>
+        <% else %>
+          <p class = "btn">
+            <%= link_to book_favorites_path(post_book), method: :post do %>
+              <i class="fa-regular fa-heart"></i><%= post_book.favorites.count %>
+            <% end %>
+          </p>
+        <% end %>
+      </td>
     </tr>
   <% end %>
 </table>
