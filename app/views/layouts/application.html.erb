@@ -21,43 +21,43 @@
           <% if user_signed_in? %>
             <li class = "nav-item text-light">
               <%= link_to user_path(current_user), class: "nav-link btn btn-sm text-light p-2 " do %>
-                <i class="fa-solid fa-home">Home</i>
+                <i class="fas fa-home">Home</i>
               <% end %>
             </li>
             <li class = "nav-item text-light">
               <%= link_to users_path, class: "nav-link btn btn-sm text-light p-2" do %>
-                <i class="fa-solid fa-users">Users</i>
+                <i class="fas fa-users">Users</i>
               <% end %>
             </li>
             <li class = "nav-item text-light">
               <%= link_to books_path, class: "nav-link btn btn-sm text-light p-2" do %>
-                <i class="fa-solid fa-book-open">Books</i>
+                <i class="fas fa-book-open">Books</i>
               <% end %>
             </li>
             <li class = "nav-item text-light">
               <%= link_to destroy_user_session_path, method: :delete, class: "nav-link btn btn-sm text-light p-2" do %>
-                <i class="fa-solid fa-sign-out-alt">Log out</i>
+                <i class="fas fa-sign-out-alt">Log out</i>
               <% end %>
             </li>
           <% else %>
             <li class = "nav-item text-light d-flex flex-row">
               <%= link_to root_path, class: "nav-link btn btn-sm text-light p-2 " do %>
-                <i class="fa-solid fa-home">Home</i>
+                <i class="fas fa-home">Home</i>
               <% end %>
             </li>
             <li class = "nav-item text-light">
               <%= link_to about_path, class: "nav-link btn btn-sm text-light p-2 " do %>
-                <i class="fa-solid fa-link">About</i>
+                <i class="fas fa-link">About</i>
               <% end %>
             </li>
             <li class = "nav-item text-light">
               <%= link_to new_user_registration_path, class: "nav-link btn btn-sm text-light p-2 " do %>
-                <i class="fa-solid fa-user-plus">Sign up</i>
+                <i class="fas fa-user-plus">Sign up</i>
               <% end %>
             </li>
             <li class = "nav-item text-light">
               <%= link_to user_session_path, class: "nav-link btn btn-sm text-light p-2   " do %>
-                <i class="fa-solid fa-sign-in-alt">Log in</i>
+                <i class="fas fa-sign-in-alt">Log in</i>
               <% end %>
             </li>
           <% end %>
